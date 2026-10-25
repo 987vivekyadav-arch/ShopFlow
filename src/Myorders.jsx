@@ -5,7 +5,7 @@ function Myorders() {
     const [myorders, setMyOrders] = React.useState([]);
 
     useEffect(function() {
-        fetch("http://localhost:5000/myorders", {
+        fetch("https://shopflow-wkvz.onrender.com/myorders", {
             method: "GET",
             headers: {
                 authorization: "Bearer " + localStorage.getItem("token")

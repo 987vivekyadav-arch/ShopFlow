@@ -10,7 +10,7 @@ const [address, setAddress] = React.useState("")
 const [selected, setSelected] = React.useState("")
 
 useEffect(function() {
-    fetch("http://localhost:5000/order", {
+    fetch("https://shopflow-wkvz.onrender.com/order", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -141,7 +141,7 @@ return (
                  <button className="checkout-proceed"
                  onClick={function() {
 
-    fetch("http://localhost:5000/create-razorpay-order", {
+    fetch("https://shopflow-wkvz.onrender.com/create-razorpay-order", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -172,7 +172,7 @@ return (
 
             handler: function(response) {
 
-                fetch("http://localhost:5000/verify-razorpay-payment", {
+                fetch("https://shopflow-wkvz.onrender.com/verify-razorpay-payment", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json","authorization":"Bearer "+localStorage.getItem("token")

@@ -8,7 +8,7 @@ function Showprofile() {
     const navigate = useNavigate();
 
     useEffect(function() {
-        fetch("http://localhost:5000/showprofile", {
+        fetch("https://shopflow-wkvz.onrender.com/showprofile", {
             method: "GET",
             headers: {
                 "authorization": "Bearer " + localStorage.getItem("token")

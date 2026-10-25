@@ -7,7 +7,7 @@ const [wishlist, setWishlist] = React.useState([])
 const navigate = useNavigate()
 
 useEffect(function() {
-    fetch("http://localhost:5000/wishlist", {
+    fetch("https://shopflow-wkvz.onrender.com/wishlist", {
         method: "GET",
         headers: {
             authorization: "Bearer " + localStorage.getItem("token")
@@ -24,7 +24,7 @@ useEffect(function() {
 
 
 function Delete(id){
-    fetch("http://localhost:5000/deletewishlist/"+id,{
+    fetch("https://shopflow-wkvz.onrender.com/deletewishlist/"+id,{
         method:"DELETE",
         headers:{"authorization":"Bearer "+localStorage.getItem("token")}
     })

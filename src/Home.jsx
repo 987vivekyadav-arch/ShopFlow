@@ -26,7 +26,7 @@ function Home() {
 
             setCategory(uniqueCategories)
 
-            return fetch("http://localhost:5000/home", {
+            return fetch("https://shopflow-wkvz.onrender.com/home", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

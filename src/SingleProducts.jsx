@@ -14,7 +14,7 @@ const[quantity,setQuantity]=React.useState(1)
 
 
 useEffect(function() {
-    fetch("http://localhost:5000/singleproducts/" + id, {
+    fetch("https://shopflow-wkvz.onrender.com/singleproducts/" + id, {
         method: "GET"
     })
     .then(function(response) {
@@ -87,7 +87,7 @@ return (
                 <button
                     className="single-cart-button"
                     onClick={function() {
-                        fetch("http://localhost:5000/cart",{
+                        fetch("https://shopflow-wkvz.onrender.com/cart",{
                             method:"POST",
                             headers:{"Content-Type":"application/json","authorization":"Bearer "+localStorage.getItem("token")},
                             body:JSON.stringify({

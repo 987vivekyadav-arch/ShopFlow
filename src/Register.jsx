@@ -86,7 +86,7 @@ function Register(){
                     className="register-submit"
                     onClick={function(){
 
-                        fetch("http://localhost:5000/register",{
+                        fetch("https://shopflow-wkvz.onrender.com/register",{
 
                             method:"POST",
 

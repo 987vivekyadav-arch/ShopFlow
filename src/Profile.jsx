@@ -12,7 +12,7 @@ function Profile() {
     const [image, setImage] = React.useState("");
 
     useEffect(function() {
-        fetch("http://localhost:5000/profile", {
+        fetch("https://shopflow-wkvz.onrender.com/profile", {
             method: "GET",
             headers: {
                 "authorization": "Bearer " + localStorage.getItem("token")
@@ -36,7 +36,7 @@ function Profile() {
     }, []);
 
     function saveProfile() {
-        fetch("http://localhost:5000/profile", {
+        fetch("https://shopflow-wkvz.onrender.com/profile", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

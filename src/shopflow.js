@@ -1,5 +1,5 @@
  export function Wishlist(item){
-    fetch("http://localhost:5000/wishlist",{
+    fetch("https://shopflow-wkvz.onrender.com/wishlist",{
         method:"POST",
         headers:{"Content-Type":"application/json","authorization":"Bearer "+localStorage.getItem("token")},
         body:JSON.stringify({

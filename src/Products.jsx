@@ -13,7 +13,7 @@ const navigate=useNavigate()
     useEffect(function() {
         setLoading(true)
 
-        fetch("http://localhost:5000/products/" + item, {
+        fetch("https://shopflow-wkvz.onrender.com/products/" + item, {
             method: "GET"
         })
         .then(function(response) {

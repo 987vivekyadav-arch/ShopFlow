@@ -7,7 +7,7 @@ function Cart() {
     const navigate=useNavigate()
 
     useEffect(function() {
-        fetch("http://localhost:5000/cart", {
+        fetch("https://shopflow-wkvz.onrender.com/cart", {
             method: "GET",
             headers: {
                 authorization: "Bearer " + localStorage.getItem("token")
@@ -47,7 +47,7 @@ function decrease(index) {
 
 
 function Delete(id){
-    fetch("http://localhost:5000/deletecart/"+id,{
+    fetch("https://shopflow-wkvz.onrender.com/deletecart/"+id,{
         method:"DELETE",
         headers:{"authorization":"Bearer "+localStorage.getItem("token")},
         
@@ -164,7 +164,7 @@ setCart(result)
                 </div>
 
                 <button onClick={function() {
-                    fetch("http://localhost:5000/order",{
+                    fetch("https://shopflow-wkvz.onrender.com/order",{
                         method:"POST",
                         headers:{"Content-Type":"application/json","authorization":"Bearer "+localStorage.getItem("token")},
                         body:JSON.stringify({
