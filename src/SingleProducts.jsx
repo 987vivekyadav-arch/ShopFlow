@@ -87,6 +87,13 @@ return (
                 <button
                     className="single-cart-button"
                     onClick={function() {
+ if (!localStorage.getItem("token")) {
+        alert("Please login or register to add products to your cart!");
+        navigate("/login");
+        return;
+    }
+
+                    
                         fetch("https://shopflow-wkvz.onrender.com/cart",{
                             method:"POST",
                             headers:{"Content-Type":"application/json","authorization":"Bearer "+localStorage.getItem("token")},
