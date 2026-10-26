@@ -92,6 +92,10 @@ return (
         navigate("/login");
         return;
     }
+    if(!singleproducts._id){
+        return;
+    }
+
 
                     
                         fetch("https://shopflow-wkvz.onrender.com/cart",{
@@ -106,6 +110,9 @@ return (
                            return response.json()
                         })
                          .then(function(data){
+                            if(data.message){
+                                alert(data.message)
+                            }
                            console.log(data)
                            navigate("/cart")
                         })

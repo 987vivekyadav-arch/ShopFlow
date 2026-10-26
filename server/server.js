@@ -132,6 +132,13 @@ res.json({
 {/*-----------------------------------------------------------Cart-----------------------------------------------------------*/}
 
 app.post("/cart",verify,function(req,res){
+
+if(!req.body.productid){
+    return res.status(404).json({
+        message:"Product not find"
+    })
+}
+
    CartModel.findOne({userid:req.userid})
    .then(function(cart){
     if(cart){
