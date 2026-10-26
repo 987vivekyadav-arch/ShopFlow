@@ -86,6 +86,33 @@ function Register(){
                     className="register-submit"
                     onClick={function(){
 
+if(name.trim()===""){
+    alert("Please fill in your name");
+    return;
+}
+if(email.trim()===""){
+    alert("Please fill in your email");
+    return;
+}
+if(!email.includes("@")===""){
+    alert("Please fill in your email");
+    return;
+}
+
+
+
+if(password.trim()===""){
+    alert("Please fill in your password");
+    return;
+}
+if(password.length<8){
+    alert("Password must be ateast 8 character");
+    return;
+}
+
+
+
+
                         fetch("https://shopflow-wkvz.onrender.com/register",{
 
                             method:"POST",
@@ -108,9 +135,21 @@ function Register(){
                             return response.json()
                         })
 
-                        .then(function(data){
-
+                       
+                         .then(function(data){
+if(data.message){
+    alert(data.message)
+    return;
+}
                             setRegister(data)
+                            alert("Registration Successful")
+                            navigate("/login")
+
+                        })
+ .catch(function(error){
+alert("Something went wrong .Pleae try again")
+                            
+                            
 
                         })
 

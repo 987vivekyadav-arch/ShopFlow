@@ -29,15 +29,57 @@ app.use(express.json({limit:"10mb"}))
 app.use(cors())
 
 {/*-----------------------------------------------------------Register-----------------------------------------------------------*/}
+app.post("/register", function(req, res) {
 
-app.post("/register",function(req,res){
-    UsersModel.create(req.body)
-    .then(function(data){
-        console.log(data)
-res.json(data)
+    const name = req.body.name;
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (!name || name.trim() === "") {
+        return res.status(400).json({
+            message: "Please fill in your name"
+        });
+    }
+
+    if (!email || email.trim() === "") {
+        return res.status(400).json({
+            message: "Please fill in your email"
+        });
+    }
+
+    if (!email.includes("@")) {
+        return res.status(400).json({
+            message: "Please enter a valid email"
+        });
+    }
+
+    if (!password || password.trim() === "") {
+        return res.status(400).json({
+            message: "Please fill in your password"
+        });
+    }
+
+    if (password.length < 8) {
+        return res.status(400).json({
+            message: "Password must be at least 8 characters"
+        });
+    }
+
+    UsersModel.create({
+        name: name.trim(),
+        email: email.trim(),
+        password: password
     })
-})
+    .then(function(data) {
+        res.status(201).json(data);
+    })
+    .catch(function(error) {
+        res.status(500).json({
+            message: "Registration failed"
+        });
+    });
 
+});
 
 
 {/*-----------------------------------------------------------Login-----------------------------------------------------------*/}
